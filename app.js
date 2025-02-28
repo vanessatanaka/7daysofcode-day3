@@ -18,6 +18,28 @@ function perguntar(mensagem, opcoesValidas) {
   return resposta;
 }
 
+// Função para perguntar qual tecnologia quer aprender 
+function coletarTecnologias() {
+  let tecnologias = [];
+  let continuar = true;
+
+  while (continuar) {
+      let tecnologia = prompt("Qual tecnologia você gostaria de aprender?");
+      
+      if (tecnologia) {
+          tecnologias.push(tecnologia);
+      }
+
+      continuar = confirm("Tem mais alguma tecnologia que você gostaria de aprender?");
+  }
+
+  if (tecnologias.length > 0) {
+      alert(`Ótimas escolhas! Você quer aprender sobre: ${tecnologias.join(", ")}. Isso abrirá muitas oportunidades no mercado de tecnologia!`);
+  } else {
+      alert("Parece que você não escolheu nenhuma tecnologia. Mas nunca é tarde para explorar novas áreas!");
+  }
+}
+
 // Objeto com opções de mensagem de acordo com a Carreira escolhida
 const mensagensCarreira = {
   "1": "Excelente decisão!\n O especialista foca em uma área específica do desenvolvimento, adquirindo um conhecimento profundo.\n Pode ser especialista em Back-End, Front-End, Banco de Dados, Arquitetura de Software, Segurança da Informação, entre outras.\n Normalmente, é a referência técnica para problemas mais complexos e otimizações avançadas.",
@@ -48,3 +70,6 @@ if (carreira === "3") {
 
 // Mensagem final de acordo com a Carreira escolhida
 mostrarMensagem(mensagensCarreira[carreira]);
+
+// Coletar as tecnologias
+coletarTecnologias();
